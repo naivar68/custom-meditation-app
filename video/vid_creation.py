@@ -1,5 +1,4 @@
 import subprocess
-import shlex
 import os
 
 def create_image_video():
@@ -12,7 +11,7 @@ def create_image_video():
         output_file = input("Enter the output filename (e.g., image_video.mp4): ")
         frame_rate = 30  # Standard frame rate
 
-        images_dir = "images"
+        images_dir = "../images"
         image_files = sorted([f for f in os.listdir(images_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif'))])
         if not image_files:
             print("No images found in the 'images' directory.")
@@ -30,7 +29,7 @@ def create_image_video():
         image_frames = int(duration_per_image * frame_rate)
 
         # Ensure 'video' directory exists
-        video_dir = "video"
+        video_dir = ""
         os.makedirs(video_dir, exist_ok=True)
         output_path = os.path.join(video_dir, output_file)
 
@@ -61,3 +60,4 @@ def create_image_video():
 
 if __name__ == "__main__":
     create_image_video()
+
